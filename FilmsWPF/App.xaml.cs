@@ -13,5 +13,6 @@ namespace FilmsWPF
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
