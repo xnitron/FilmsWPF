@@ -30,7 +30,9 @@
                                Source="{Binding DisplayImage}" 
                                MaxHeight="350" MaxWidth="150" 
                                Margin="10"/>
-                        <WrapPanel Grid.Column="1" Orientation = "Vertical">
+                        <WrapPanel Grid.Column="1" 
+                                   Orientation = "Vertical"
+                                   Width="300">
                             <WrapPanel.Resources>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Margin" Value="3"/>
@@ -39,6 +41,7 @@
                                     <Setter Property="FontSize" Value="14"/>
                                     <Setter Property="TextAlignment" Value="Justify"/>
                                     <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="TextWrapping" Value="Wrap"/>
                                 </Style>
                             </WrapPanel.Resources>
                             <TextBlock 
