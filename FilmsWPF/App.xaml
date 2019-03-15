@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:FilmsWPF"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type Control}" x:Key="TextStyle">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -25,18 +25,7 @@ namespace FilmsWPF
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainFilmsViewModel();
-        }
-
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void AboutBtn_Click(object sender, RoutedEventArgs e)
-        {
-            AboutView aboutView = new AboutView();
-            aboutView.Show();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using FilmsWPF.Model;
 using System.IO;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
+using FilmsWPF.Commands;
+
 
 namespace FilmsWPF.ViewModel
 {
-    public class MainFilmsViewModel : INotifyPropertyChanged
+    public class FilmsViewModel
     {
-        private FilmModel _film;
         private IEnumerable<FilmModel> json;
-        private string _overView;
-        public event PropertyChangedEventHandler PropertyChanged;
+
         public ObservableCollection<FilmModel> Films { get; set; }
 
-        public MainFilmsViewModel()
+        public FilmsViewModel()
         {
             json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText("data.json"));
-
 
             json = json.Select(w =>
             {
@@ -35,14 +28,8 @@ namespace FilmsWPF.ViewModel
                 w.DisplayImage = @"/Images" + w.DisplayImage;
                 return w;
             });
-            
 
             Films = new ObservableCollection<FilmModel>(json);
-        }
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

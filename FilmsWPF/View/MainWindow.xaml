@@ -5,47 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmsWPF"
         mc:Ignorable="d"
+        Style="{StaticResource TextStyle}"
         Title="MainWindow" Height="800" Width="600">
-
+    <Window.Resources>
+        <Style x:Key="Flat" TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Control.Background" Value="{x:Null}" />
+            <Setter Property="Control.BorderBrush" Value="{x:Null}" />
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="{x:Null}" />
+                    <Setter Property="Control.BorderBrush" Value="{x:Null}" />
+                    <Setter Property="Control.FontWeight" Value="Bold" />
+                </Trigger>
+                <Trigger Property="Control.IsFocused" Value="True">
+                    <Setter Property="Control.FontWeight" Value="Bold" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.9*"/>
         </Grid.RowDefinitions>
-        <WrapPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Content="About" Height="50" Width="100" Margin="5" Click="AboutBtn_Click"/>
-            <TextBlock Text="{Binding TextBrn}"/>
-            <Button Content="Exit" Height="50" Width="100" Margin="5" Click="ExitBtn_Click"/>
+        <WrapPanel Grid.Row="0" 
+                   Orientation="Horizontal" 
+                   FlowDirection="RightToLeft">
+            <Button Content="About"  
+                    Command="{Binding AboutBtnCommand}"
+                    Style="{StaticResource Flat}" />
+            <Button Content="Exit"
+                    Command="{Binding ExitBtnCommand}"
+                    Style="{StaticResource Flat}" />
         </WrapPanel>
 
-        <ListBox Grid.Row="1" HorizontalContentAlignment="Stretch" 
-                 ItemsSource="{Binding Films}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Image Grid.Column="0" Grid.RowSpan="4" 
-                               Source="{Binding DisplayImage}" 
-                               MaxHeight="500" MaxWidth="300" 
-                               Margin="10"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" 
-                                   Text="{Binding Title}"  />
-                        <TextBlock Grid.Column="1" Grid.Row="1"
-                                   Text="{Binding Vote}"  />
-                        <TextBlock Grid.Column="1" Grid.Row="2"
-                                   Text="{Binding OverView}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Frame Grid.Row="1" Content="{Binding CurrentPage}"/>
     </Grid>
 </Window>
