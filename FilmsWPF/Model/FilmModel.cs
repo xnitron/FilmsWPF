@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 
 namespace FilmsWPF.Model
 {
     public class FilmModel
     {
-        public int Id { get; set; }
+        public int id { get; set; }
+        [JsonProperty("poster_path")]
         public string DisplayImage { get; set; }
+        [JsonProperty("title")]
         public string Title { get; set; }
-        public int Vote { get; set; }
+        [JsonProperty("vote_average")]
+        public double Vote { get; set; }
+        [JsonProperty("overview")]
+        public string OverView { get; set; }
     }
 }

@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -111,6 +114,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Files\data.json" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,6 +135,28 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2WfjB6FUDTIBVI2y02UGbnHR82s.jpg" />
+    <Resource Include="Images\30IiwvIRqPGjUV0bxJkZfnSiCL.jpg" />
+    <Resource Include="Images\5damnMcRFKSjhCirgX3CMa88MBj.jpg" />
+    <Resource Include="Images\5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg" />
+    <Resource Include="Images\5xNBYXuv8wqiLVDhsfqCOr75DL7.jpg" />
+    <Resource Include="Images\7BsvSuDQuoqhWmU2fL7W2GOcZHU.jpg" />
+    <Resource Include="Images\7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" />
+    <Resource Include="Images\AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg" />
+    <Resource Include="Images\bOiHlY5JD8GLp7BvWdHkfEftzhQ.jpg" />
+    <Resource Include="Images\fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg" />
+    <Resource Include="Images\iiZZdoQBEYBv6id8su7ImL0oCbD.jpg" />
+    <Resource Include="Images\lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg" />
+    <Resource Include="Images\QTESAsBVZwjtGJNDP7utiGV37z.jpg" />
+    <Resource Include="Images\svIDTNUoajS8dLEo7EosxvyAsgJ.jpg" />
+    <Resource Include="Images\uTVGku4LibMGyKgQvjBtv3OYfAX.jpg" />
+    <Resource Include="Images\uXJVpPXxZO4L8Rz3IG1Y8XvZJcg.jpg" />
+    <Resource Include="Images\v3QyboWRoA4O9RbcsqH8tJMe8EB.jpg" />
+    <Resource Include="Images\whtt9F8PFqvEgc4fDSHZPkitFk4.jpg" />
+    <Resource Include="Images\xRWht48C2V8XNfzvPehyClOvDni.jpg" />
+    <Resource Include="Images\xvx4Yhf0DVH8G4LzNISpMfFBDy2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,36 +14,35 @@
         </Grid.RowDefinitions>
         <WrapPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="RightToLeft">
             <Button Content="About" Height="50" Width="100" Margin="5" Click="AboutBtn_Click"/>
+            <TextBlock Text="{Binding TextBrn}"/>
             <Button Content="Exit" Height="50" Width="100" Margin="5" Click="ExitBtn_Click"/>
         </WrapPanel>
 
         <ListBox Grid.Row="1" HorizontalContentAlignment="Stretch" 
-                 Grid.RowSpan="2" 
                  ItemsSource="{Binding Films}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="0.33*"/>
-                            <RowDefinition Height="0.33*"/>
-                            <RowDefinition Height="0.33*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Column="0" Grid.Row="0" 
+                        <Image Grid.Column="0" Grid.RowSpan="4" 
                                Source="{Binding DisplayImage}" 
-                               Stretch="Fill"/>
-                        <TextBlock Grid.Column="0" Grid.Row="0" 
+                               MaxHeight="500" MaxWidth="300" 
+                               Margin="10"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" 
                                    Text="{Binding Title}"  />
-                        <TextBlock Grid.Column="0" Grid.Row="0"
+                        <TextBlock Grid.Column="1" Grid.Row="1"
                                    Text="{Binding Vote}"  />
-                        <TextBlock Grid.Column="0" Grid.Row="0"
-                                   Text="{Binding Vote}"  />
-                        <TextBlock Grid.Column="0" Grid.Row="0"
-                                   Text="{Binding Vote}"  />
+                        <TextBlock Grid.Column="1" Grid.Row="2"
+                                   Text="{Binding OverView}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
