@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using FilmsWPF.ViewModel;
 
 namespace FilmsWPF.View
@@ -6,7 +7,7 @@ namespace FilmsWPF.View
     /// <summary>
     /// Interaction logic for AboutView.xaml
     /// </summary>
-    public partial class AboutView : Window
+    public partial class AboutView : Page
     {
         public AboutView()
         {

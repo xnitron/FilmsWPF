@@ -73,6 +73,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\SelectFilmModel.cs" />
+    <Compile Include="ViewModel\SelectedFilmViewModel.cs" />
+    <Compile Include="View\SelectedFilmView.xaml.cs">
+      <DependentUpon>SelectedFilmView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AboutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +97,7 @@
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Model\FilmModel.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\FilmsViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\AboutView.xaml.cs">
@@ -104,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\SelectedFilmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

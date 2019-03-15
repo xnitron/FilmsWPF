@@ -18,5 +18,8 @@ namespace FilmsWPF.Model
         public double Vote { get; set; }
         [JsonProperty("overview")]
         public string OverView { get; set; }
+        [JsonProperty("release_date")]
+        public DateTime ReleaseDate{ get; set; }
+        
     }
 }

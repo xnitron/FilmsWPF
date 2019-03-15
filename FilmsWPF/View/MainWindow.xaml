@@ -1,4 +1,4 @@
-﻿<Window x:Class="FilmsWPF.MainWindow"
+﻿<Window x:Class="FilmsWPF.MainWindowView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FilmsWPF"
         mc:Ignorable="d"
         Style="{StaticResource TextStyle}"
-        Title="MainWindow" Height="800" Width="600">
+        Title="MainWindow" Height="800" Width="700">
     <Window.Resources>
         <Style x:Key="Flat" TargetType="Button">
             <Setter Property="Margin" Value="5" />
@@ -35,11 +35,11 @@
         <WrapPanel Grid.Row="0" 
                    Orientation="Horizontal" 
                    FlowDirection="RightToLeft">
-            <Button Content="About"  
-                    Command="{Binding AboutBtnCommand}"
-                    Style="{StaticResource Flat}" />
             <Button Content="Exit"
                     Command="{Binding ExitBtnCommand}"
+                    Style="{StaticResource Flat}" />
+            <Button Content="About"  
+                    Command="{Binding AboutBtnCommand}"
                     Style="{StaticResource Flat}" />
         </WrapPanel>
 
