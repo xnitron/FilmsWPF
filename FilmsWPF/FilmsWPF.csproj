@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cinema.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -176,6 +179,9 @@
     <Resource Include="Images\whtt9F8PFqvEgc4fDSHZPkitFk4.jpg" />
     <Resource Include="Images\xRWht48C2V8XNfzvPehyClOvDni.jpg" />
     <Resource Include="Images\xvx4Yhf0DVH8G4LzNISpMfFBDy2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cinema.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
