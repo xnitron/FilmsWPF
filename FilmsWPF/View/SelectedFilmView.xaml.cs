@@ -7,11 +7,11 @@ namespace FilmsWPF.View
     /// </summary>
     public partial class SelectedFilmView : Page
     {
-        public SelectedFilmView()
+        public SelectedFilmView(int id)
         {
             InitializeComponent();
 
-            DataContext = new SelectedFilmViewModel();
+            DataContext = new SelectedFilmViewModel(id);
         }
     }
 }

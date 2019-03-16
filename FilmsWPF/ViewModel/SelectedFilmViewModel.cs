@@ -7,29 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
 
 namespace FilmsWPF.ViewModel
 {
-    public class SelectedFilmViewModel
+    public class SelectedFilmViewModel : BaseViewModel
     {
         private IEnumerable<SelectFilmModel> json;
         private SelectFilmModel _filmModel;
+        private FilmModel _filmM;
 
         public ObservableCollection<SelectFilmModel> Films { get; set; }
-
-        public SelectedFilmViewModel()
-        {
+                                                        
+        public SelectedFilmViewModel(int id)
+        {                                                       
             json = JsonConvert.DeserializeObject<List<SelectFilmModel>>(File.ReadAllText("films_data.json"));
             json = from film in json
-                   where film.id == 299537
+                   where film.id == id
                    select film;
-            json = json.Select(f => 
+            json = json.Select(img => 
             {
-                f.DisplayImage = @"/Images" + f.DisplayImage; return f;
+                img.DisplayImage = @"/Images" + img.DisplayImage; return img;
             });
-
-                   
             Films = new ObservableCollection<SelectFilmModel>(json);
         }
+
     }
 }

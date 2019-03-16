@@ -4,11 +4,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using FilmsWPF.Model;
 using System.IO;
-using FilmsWPF.Commands;
-using System.Windows;
 using FilmsWPF.View;
-using System.Windows.Navigation;
-using System;
+using System.Windows.Controls;
 
 namespace FilmsWPF.ViewModel
 {
@@ -16,29 +13,29 @@ namespace FilmsWPF.ViewModel
     {
         private IEnumerable<FilmModel> json;
         private FilmModel _filmModel;
-
+        private Page _page;
         public ObservableCollection<FilmModel> Films { get; set; }
 
-        public FilmsViewModel()
+        public FilmsViewModel(Page page)
         {
-        
-           json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText("films_data.json"));
-           json = json.Select(film =>
-            {
-                if (film.OverView.Length > 40)
-                {
-                    film.OverView = film.OverView.Substring(0, 40) + "...";
-                }
+            this._page = page;
+            
+            json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText("films_data.json"));
+            json = json.Select(film =>
+             {
+                 if (film.OverView.Length > 40)
+                 {
+                     film.OverView = film.OverView.Substring(0, 40) + "...";
+                 }
 
-                film.DisplayImage = @"/Images" + film.DisplayImage;
-                return film;
-            });
+                 film.DisplayImage = @"/Images" + film.DisplayImage;
+                 return film;
+             });
 
             Films = new ObservableCollection<FilmModel>(json);
         }
 
-
-        public FilmModel SelectedFilm
+        public FilmModel Film
         {
             get
             {
@@ -47,9 +44,10 @@ namespace FilmsWPF.ViewModel
             set
             {
                 _filmModel = value;
+                
+                _page.NavigationService.Navigate(new SelectedFilmView(_filmModel.id));
                 OnPropertyChanged();
             }
         }
-
     }
 }

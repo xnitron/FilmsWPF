@@ -5,17 +5,22 @@ using FilmsWPF.Commands;
 using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using FilmsWPF.Model;
 
 namespace FilmsWPF.ViewModel
 {
-    public class MainWindowViewModel : BaseViewModel 
+    public class MainWindowViewModel : BaseViewModel
     {
         private object _currentPage;
-     
+        private FilmModel _filmModel;
+
         public ICommand ExitBtnCommand { get; set; }
         public ICommand AboutBtnCommand { get; set; }
 
+        public MainWindowViewModel()
+        {
 
+        }
         public MainWindowViewModel(Page page)
         {
             CurrentPage = page;
@@ -27,7 +32,7 @@ namespace FilmsWPF.ViewModel
         {
             get
             {
-                return _currentPage; 
+                return _currentPage;
             }
             set
             {
@@ -40,7 +45,6 @@ namespace FilmsWPF.ViewModel
         {
             return true;
         }
-        
 
         private void AboutBtn(object param)
         {
