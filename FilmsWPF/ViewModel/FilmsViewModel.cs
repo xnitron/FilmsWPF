@@ -19,14 +19,11 @@ namespace FilmsWPF.ViewModel
         public FilmsViewModel(Page page)
         {
             this._page = page;
-            
+
             json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText("films_data.json"));
             json = json.Select(film =>
              {
-                 if (film.OverView.Length > 40)
-                 {
-                     film.OverView = film.OverView.Substring(0, 40) + "...";
-                 }
+                 film.OverView = TrimString(film.OverView);
 
                  film.DisplayImage = @"/Images" + film.DisplayImage;
                  return film;
@@ -44,10 +41,20 @@ namespace FilmsWPF.ViewModel
             set
             {
                 _filmModel = value;
-                
+
                 _page.NavigationService.Navigate(new SelectedFilmView(_filmModel.id));
                 OnPropertyChanged();
             }
+        }
+
+
+        private string TrimString(string str, int length = 100)
+        {
+            if (str.Length > length)
+            {
+                return str.Substring(0, length) + " ...";
+            }
+            return str;
         }
     }
 }
