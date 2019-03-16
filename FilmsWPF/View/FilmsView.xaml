@@ -15,8 +15,7 @@
         <ListBox
             HorizontalContentAlignment="Stretch"
             ItemsSource="{Binding Films}"
-            SelectedItem="{Binding Film}">
-
+            SelectedValue="{Binding Film}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="10" Background="White">

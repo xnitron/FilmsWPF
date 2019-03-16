@@ -15,12 +15,13 @@ namespace FilmsWPF.ViewModel
         private FilmModel _filmModel;
         private Page _page;
         public ObservableCollection<FilmModel> Films { get; set; }
+        private string _path = @"..\..\Files\films_data.json"; 
 
         public FilmsViewModel(Page page)
         {
             this._page = page;
 
-            json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText("films_data.json"));
+            json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path));
             json = json.Select(film =>
              {
                  film.OverView = TrimString(film.OverView);
@@ -40,13 +41,14 @@ namespace FilmsWPF.ViewModel
             }
             set
             {
-                _filmModel = value;
-
-                _page.NavigationService.Navigate(new SelectedFilmView(_filmModel.id));
-                OnPropertyChanged();
+                if (value != _filmModel)
+                {
+                    _filmModel = value;
+                    _page.NavigationService.Navigate(new SelectedFilmView(_filmModel.id));
+                    OnPropertyChanged();
+                }
             }
         }
-
 
         private string TrimString(string str, int length = 100)
         {

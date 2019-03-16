@@ -11,15 +11,11 @@
 
     <Grid>
         <ListBox HorizontalContentAlignment="Stretch"
-                 ItemsSource="{Binding Films}">
+                 ItemsSource="{Binding Films}"
+                 IsHitTestVisible="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="10" Background="White">
-                        <Grid.Effect>
-                            <DropShadowEffect Color="Gray" 
-                                                  ShadowDepth="2" 
-                                                  Direction="200"/>
-                        </Grid.Effect>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50*"/>
                             <ColumnDefinition Width="50*"/>

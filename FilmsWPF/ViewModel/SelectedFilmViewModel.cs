@@ -1,19 +1,16 @@
 ﻿using FilmsWPF.Model;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Windows;
 
 namespace FilmsWPF.ViewModel
 {
     public class SelectedFilmViewModel : BaseViewModel
     {
         private IEnumerable<SelectFilmModel> json;
+        private string _path = @"..\..\Files\films_data.json";
         private SelectFilmModel _filmModel;
         private FilmModel _filmM;
 
@@ -21,7 +18,7 @@ namespace FilmsWPF.ViewModel
                                                         
         public SelectedFilmViewModel(int id)
         {                                                       
-            json = JsonConvert.DeserializeObject<List<SelectFilmModel>>(File.ReadAllText("films_data.json"));
+            json = JsonConvert.DeserializeObject<List<SelectFilmModel>>(File.ReadAllText(_path));
             json = from film in json
                    where film.id == id
                    select film;

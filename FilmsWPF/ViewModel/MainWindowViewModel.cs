@@ -3,8 +3,6 @@ using System.Windows.Input;
 using FilmsWPF.View;
 using FilmsWPF.Commands;
 using System.Windows;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using FilmsWPF.Model;
 
 namespace FilmsWPF.ViewModel
@@ -16,6 +14,7 @@ namespace FilmsWPF.ViewModel
 
         public ICommand ExitBtnCommand { get; set; }
         public ICommand AboutBtnCommand { get; set; }
+        public ICommand HomeBtnCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -26,6 +25,7 @@ namespace FilmsWPF.ViewModel
             CurrentPage = page;
             AboutBtnCommand = new CommandHandler(AboutBtn, CanExecute);
             ExitBtnCommand = new CommandHandler(ExitBtn, CanExecute);
+            HomeBtnCommand = new CommandHandler(HomeBtn, CanExecute);
         }
 
         public object CurrentPage
@@ -49,6 +49,11 @@ namespace FilmsWPF.ViewModel
         private void AboutBtn(object param)
         {
             CurrentPage = new AboutView();
+        }
+
+        private void HomeBtn(object param)
+        {
+            CurrentPage = new FilmsView();
         }
 
         private void ExitBtn(object param)
