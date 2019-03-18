@@ -17,8 +17,12 @@ namespace FilmsWPF.ViewModel
         public ObservableCollection<SelectFilmModel> Films { get; set; }
                                                         
         public SelectedFilmViewModel(int id)
-        {                                                       
-            json = JsonConvert.DeserializeObject<List<SelectFilmModel>>(File.ReadAllText(_path));
+        {
+            json = JsonConvert.DeserializeObject<List<SelectFilmModel>>(File.ReadAllText(_path))
+                .Where(film => film.id == id)
+                .Select(film =>
+                { film.DisplayImage = @"/Images" + film.DisplayImage; return film; });
+            
             json = from film in json
                    where film.id == id
                    select film;
@@ -27,6 +31,7 @@ namespace FilmsWPF.ViewModel
                 img.DisplayImage = @"/Images" + img.DisplayImage; return img;
             });
 
+           
             Films = new ObservableCollection<SelectFilmModel>(json);
         }
 

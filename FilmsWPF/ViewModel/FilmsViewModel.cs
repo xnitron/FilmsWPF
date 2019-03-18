@@ -21,7 +21,8 @@ namespace FilmsWPF.ViewModel
         {
             this._page = page;
 
-            var json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path))
+            var json = JsonConvert
+                .DeserializeObject<List<FilmModel>>(File.ReadAllText(_path))
                 .Select(film =>
                 {
                     film.OverView = StringUtils.TrimString(film.OverView);
