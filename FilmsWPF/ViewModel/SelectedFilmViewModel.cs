@@ -18,19 +18,14 @@ namespace FilmsWPF.ViewModel
                                                         
         public SelectedFilmViewModel(int id)
         {
-            json = JsonConvert.DeserializeObject<List<SelectFilmModel>>(File.ReadAllText(_path))
+            json = JsonConvert
+                .DeserializeObject<List<SelectFilmModel>>(File.ReadAllText(_path))
                 .Where(film => film.id == id)
                 .Select(film =>
-                { film.DisplayImage = @"/Images" + film.DisplayImage; return film; });
-            
-            json = from film in json
-                   where film.id == id
-                   select film;
-            json = json.Select(img =>
-            {
-                img.DisplayImage = @"/Images" + img.DisplayImage; return img;
-            });
-
+                {
+                    film.DisplayImage = @"/Images" + film.DisplayImage;
+                    return film;
+                });
            
             Films = new ObservableCollection<SelectFilmModel>(json);
         }
