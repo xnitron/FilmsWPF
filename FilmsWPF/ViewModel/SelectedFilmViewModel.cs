@@ -9,16 +9,12 @@ namespace FilmsWPF.ViewModel
 {
     public class SelectedFilmViewModel : BaseViewModel
     {
-        private IEnumerable<SelectFilmModel> json;
         private string _path = @"..\..\Files\films_data.json";
-        private SelectFilmModel _filmModel;
-        private FilmModel _filmM;
-
         public ObservableCollection<SelectFilmModel> Films { get; set; }
-                                                        
+
         public SelectedFilmViewModel(int id)
         {
-            json = JsonConvert
+            var json = JsonConvert
                 .DeserializeObject<List<SelectFilmModel>>(File.ReadAllText(_path))
                 .Where(film => film.id == id)
                 .Select(film =>
@@ -26,7 +22,7 @@ namespace FilmsWPF.ViewModel
                     film.DisplayImage = @"/Images" + film.DisplayImage;
                     return film;
                 });
-           
+
             Films = new ObservableCollection<SelectFilmModel>(json);
         }
 
