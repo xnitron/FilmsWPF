@@ -77,6 +77,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\SelectFilmModel.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="ViewModel\SelectedFilmViewModel.cs" />
     <Compile Include="View\SelectedFilmView.xaml.cs">
       <DependentUpon>SelectedFilmView.xaml</DependentUpon>

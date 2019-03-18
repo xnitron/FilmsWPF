@@ -6,6 +6,7 @@ using FilmsWPF.Model;
 using System.IO;
 using FilmsWPF.View;
 using System.Windows.Controls;
+using FilmsWPF.Utils;
 
 namespace FilmsWPF.ViewModel
 {
@@ -23,7 +24,7 @@ namespace FilmsWPF.ViewModel
             var json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path))
                 .Select(film =>
                 {
-                    film.OverView = TrimString(film.OverView);
+                    film.OverView = StringUtils.TrimString(film.OverView);
 
                     film.DisplayImage = @"/Images" + film.DisplayImage;
                     return film;
@@ -47,15 +48,6 @@ namespace FilmsWPF.ViewModel
                     OnPropertyChanged();
                 }
             }
-        }
-
-        private string TrimString(string str, int length = 100)
-        {
-            if (str.Length > length)
-            {
-                return str.Substring(0, length) + " ...";
-            }
-            return str;
         }
     }
 }
