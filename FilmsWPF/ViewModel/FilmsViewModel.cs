@@ -20,14 +20,14 @@ namespace FilmsWPF.ViewModel
         {
             this._page = page;
 
-            var json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path)).
-                                                                    Select(film =>
-                                                                    {
-                                                                        film.OverView = TrimString(film.OverView);
+            var json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path))
+                        .Select(film =>
+                        {
+                            film.OverView = TrimString(film.OverView);
 
-                                                                        film.DisplayImage = @"/Images" + film.DisplayImage;
-                                                                        return film;
-                                                                    });
+                            film.DisplayImage = @"/Images" + film.DisplayImage;
+                            return film;
+                        });
 
             Films = new ObservableCollection<FilmModel>(json);
         }
