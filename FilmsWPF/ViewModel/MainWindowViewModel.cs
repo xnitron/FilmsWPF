@@ -16,10 +16,6 @@ namespace FilmsWPF.ViewModel
         public ICommand AboutBtnCommand { get; set; }
         public ICommand HomeBtnCommand { get; set; }
 
-        public MainWindowViewModel()
-        {
-
-        }
         public MainWindowViewModel(Page page)
         {
             CurrentPage = page;
