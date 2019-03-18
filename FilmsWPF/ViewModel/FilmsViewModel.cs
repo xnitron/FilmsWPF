@@ -11,24 +11,23 @@ namespace FilmsWPF.ViewModel
 {
     public class FilmsViewModel : BaseViewModel
     {
-        private IEnumerable<FilmModel> json;
         private FilmModel _filmModel;
         private Page _page;
         public ObservableCollection<FilmModel> Films { get; set; }
-        private string _path = @"..\..\Files\films_data.json"; 
+        private string _path = @"..\..\Files\films_data.json";
 
         public FilmsViewModel(Page page)
         {
             this._page = page;
 
-            json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path));
-            json = json.Select(film =>
-             {
-                 film.OverView = TrimString(film.OverView);
+            var json = JsonConvert.DeserializeObject<List<FilmModel>>(File.ReadAllText(_path)).
+                                                                    Select(film =>
+                                                                    {
+                                                                        film.OverView = TrimString(film.OverView);
 
-                 film.DisplayImage = @"/Images" + film.DisplayImage;
-                 return film;
-             });
+                                                                        film.DisplayImage = @"/Images" + film.DisplayImage;
+                                                                        return film;
+                                                                    });
 
             Films = new ObservableCollection<FilmModel>(json);
         }

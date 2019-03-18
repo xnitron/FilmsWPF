@@ -22,7 +22,7 @@ namespace FilmsWPF.ViewModel
             json = from film in json
                    where film.id == id
                    select film;
-            json = json.Select(img => 
+            json = json.Select(img =>
             {
                 img.DisplayImage = @"/Images" + img.DisplayImage; return img;
             });
