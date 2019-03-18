@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\AboutModel.cs" />
     <Compile Include="Model\SelectFilmModel.cs" />
     <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="ViewModel\SelectedFilmViewModel.cs" />
@@ -137,6 +138,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Files\about_data.json" />
     <None Include="Files\films_data.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
