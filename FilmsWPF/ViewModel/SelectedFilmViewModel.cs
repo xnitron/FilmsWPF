@@ -26,6 +26,7 @@ namespace FilmsWPF.ViewModel
             {
                 img.DisplayImage = @"/Images" + img.DisplayImage; return img;
             });
+
             Films = new ObservableCollection<SelectFilmModel>(json);
         }
 
