@@ -138,8 +138,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Files\about_data.json" />
-    <None Include="Files\films_data.json" />
+    <Resource Include="Files\about_data.json" />
+    <Resource Include="Files\films_data.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
